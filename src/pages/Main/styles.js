@@ -18,7 +18,7 @@ export const Header = styled.View`
 export const Card = styled.View`
   width: 200px;
   background: #fff;
-  height: 300px;
+  height: 350px;
   margin: 0px 10px;
   border-radius: 5px;
   padding: 15px;
@@ -34,6 +34,23 @@ export const ProductTitle = styled.Text`
 `;
 
 export const ProductPrice = styled.Text`
-  font-size: 1.4em;
   font-weight: bold;
+  font-size: 20px;
+`;
+
+export const CartButton = styled.TouchableOpacity`
+  width: 100%;
+  height: 40px;
+  background-color: #6355b5;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin-top: auto;
+`;
+
+export const CartText = styled.Text`
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
 `;
