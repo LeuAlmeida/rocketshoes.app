@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-import { Container } from './styles';
+import { Container, Header } from './styles';
 
 class Main extends Component {
   state = {};
@@ -17,8 +17,13 @@ class Main extends Component {
 
     return (
       <Container>
+        <Header>
+          <Text>Teste</Text>
+          <Text>Teste</Text>
+        </Header>
+
         <TouchableOpacity
-          style={{ height: 400, backgroundColor: 'red' }}
+          style={{ height: 150, backgroundColor: 'red' }}
           onPress={() => navigation.navigate('Cart')}
         >
           <Text>Ir para a página de carrinho</Text>
