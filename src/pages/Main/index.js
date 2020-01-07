@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, ScrollView } from 'react-native';
 
-import { Container, Header } from './styles';
+import { Container, Header, Card } from './styles';
 
 class Main extends Component {
   state = {};
@@ -21,6 +21,18 @@ class Main extends Component {
           <Text>Teste</Text>
           <Text>Teste</Text>
         </Header>
+
+        <ScrollView horizontal>
+          <Card>
+            <Text>Testeee</Text>
+          </Card>
+          <Card>
+            <Text>Testeee</Text>
+          </Card>
+          <Card>
+            <Text>Testeee</Text>
+          </Card>
+        </ScrollView>
 
         <TouchableOpacity
           style={{ height: 150, backgroundColor: 'red' }}
