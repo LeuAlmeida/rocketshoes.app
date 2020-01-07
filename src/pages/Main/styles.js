@@ -10,7 +10,16 @@ export const Container = styled.View`
 export const Header = styled.View`
   flex-direction: row;
   margin-top: 15px;
-  background: yellow;
   padding: 15px;
   justify-content: space-between;
+  margin-bottom: 10px;
+`;
+
+export const Card = styled.View`
+  width: 200px;
+  background: #fff;
+  height: 200px;
+  margin: 0px 5px;
+  border-radius: 5px;
+  padding: 15px;
 `;
