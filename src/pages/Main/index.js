@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
 import { Text, TouchableOpacity, ScrollView } from 'react-native';
 
-import { Container, Header, Card, Product } from './styles';
+import {
+  Container,
+  Header,
+  Card,
+  Product,
+  ProductTitle,
+  ProductPrice,
+  CartButton,
+  CartIcon,
+  CartText,
+} from './styles';
 
 class Main extends Component {
   state = {};
@@ -31,11 +41,20 @@ class Main extends Component {
               }}
               resizeMode="contain"
             />
+            <ProductTitle>Título do Produto</ProductTitle>
+            <ProductPrice>R$ 200,00</ProductPrice>
+            <CartButton onPress={() => {}}>
+              <CartIcon>
+                <Text>Teste</Text>
+              </CartIcon>
+
+              <CartText>Adicionar</CartText>
+            </CartButton>
           </Card>
         </ScrollView>
 
         <TouchableOpacity
-          style={{ height: 150, backgroundColor: 'red' }}
+          style={{ height: 50, backgroundColor: 'red' }}
           onPress={() => navigation.navigate('Cart')}
         >
           <Text>Ir para a página de carrinho</Text>
