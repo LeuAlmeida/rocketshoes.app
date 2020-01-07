@@ -41,15 +41,23 @@ export const ProductPrice = styled.Text`
 export const CartButton = styled.TouchableOpacity`
   width: 100%;
   height: 40px;
+  flex-direction: row;
   background-color: #6355b5;
   align-items: center;
-  justify-content: center;
+  padding-right: 15px;
+  justify-content: space-between;
   border-radius: 5px;
   margin-top: auto;
 `;
 
+export const CartIcon = styled.View`
+  background-color: red;
+  width: 30px;
+  height: 40px;
+`;
+
 export const CartText = styled.Text`
-  font-size: 12px;
+  font-size: 14px;
   text-transform: uppercase;
   font-weight: bold;
   color: #fff;
