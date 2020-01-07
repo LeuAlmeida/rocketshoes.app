@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.view`
+export const Container = styled.View`
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
   background: #16151b;
 `;
