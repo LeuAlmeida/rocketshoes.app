@@ -6,3 +6,11 @@ export const Container = styled.View`
   min-height: 100%;
   background: #16151b;
 `;
+
+export const Header = styled.View`
+  flex-direction: row;
+  margin-top: 15px;
+  background: yellow;
+  padding: 15px;
+  justify-content: space-between;
+`;
