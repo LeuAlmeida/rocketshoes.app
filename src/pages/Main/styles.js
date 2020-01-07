@@ -18,8 +18,13 @@ export const Header = styled.View`
 export const Card = styled.View`
   width: 200px;
   background: #fff;
-  height: 200px;
-  margin: 0px 5px;
+  height: 300px;
+  margin: 0px 10px;
   border-radius: 5px;
   padding: 15px;
+`;
+
+export const Product = styled.Image`
+  max-width: 200px;
+  height: 200px;
 `;
