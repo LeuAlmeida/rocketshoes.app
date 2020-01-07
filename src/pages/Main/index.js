@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, TouchableOpacity, ScrollView } from 'react-native';
 
-import { Container, Header, Card } from './styles';
+import { Container, Header, Card, Product } from './styles';
 
 class Main extends Component {
   state = {};
@@ -24,13 +24,13 @@ class Main extends Component {
 
         <ScrollView horizontal>
           <Card>
-            <Text>Testeee</Text>
-          </Card>
-          <Card>
-            <Text>Testeee</Text>
-          </Card>
-          <Card>
-            <Text>Testeee</Text>
+            <Product
+              source={{
+                uri:
+                  'https://static.netshoes.com.br/produtos/tenis-vr-sneaker-meia-leve/06/E74-0492-006/E74-0492-006_detalhe2.jpg',
+              }}
+              resizeMode="contain"
+            />
           </Card>
         </ScrollView>
 
