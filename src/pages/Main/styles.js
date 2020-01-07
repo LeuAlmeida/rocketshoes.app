@@ -28,3 +28,12 @@ export const Product = styled.Image`
   max-width: 200px;
   height: 200px;
 `;
+
+export const ProductTitle = styled.Text`
+  color: #000;
+`;
+
+export const ProductPrice = styled.Text`
+  font-size: 1.4em;
+  font-weight: bold;
+`;
