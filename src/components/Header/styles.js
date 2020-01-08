@@ -17,6 +17,11 @@ export const Container = styled.View`
   padding: 20px;
 `;
 
+export const LogoContainer = styled.TouchableOpacity`
+  width: 185px;
+  height: 30px;
+`;
+
 export const Logo = styled.Image.attrs({
   source: logo,
   resizeMode: 'cover',
@@ -42,7 +47,7 @@ export const ItemCount = styled.Text`
   min-height: 18px;
   background: ${colors.primary};
   color: #fff;
-  font-size: 12px;
+  font-size: 10px;
   padding: 2px;
   border-radius: 9px;
   overflow: hidden;
