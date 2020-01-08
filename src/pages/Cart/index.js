@@ -45,6 +45,13 @@ function Cart({
                     'https://static.netshoes.com.br/produtos/tenis-vr-sneaker-meia-leve/06/E74-0492-006/E74-0492-006_detalhe2.jpg',
                 }}
               />
+              <ProductDetails>
+                <ProductTitle>Título do Produto</ProductTitle>
+                <ProductPrice>R$ 200</ProductPrice>
+              </ProductDetails>
+              <ProductDelete onPress={() => {}}>
+                <Icon name="delete-forever" size={24} color={colors.primary} />
+              </ProductDelete>
             </ProductInfo>
             <ProductControls>
               <ProductControlButton onPress={() => {}}>
