@@ -1,10 +1,10 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
+import colors from '../../styles/colors';
 
 export const Container = styled.View`
-  margin: 0;
-  padding: 0;
+  background: ${colors.dark};
   min-height: 100%;
-  background: #16151b;
 `;
 
 export const Header = styled.View`
@@ -16,12 +16,11 @@ export const Header = styled.View`
 `;
 
 export const Card = styled.View`
-  width: 200px;
   background: #fff;
-  height: 350px;
-  margin: 0px 10px;
-  border-radius: 5px;
-  padding: 15px;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 4px;
+  width: 220px;
 `;
 
 export const Product = styled.Image`
@@ -30,42 +29,44 @@ export const Product = styled.Image`
 `;
 
 export const ProductTitle = styled.Text`
-  color: #000;
+  font-size: 16px;
 `;
 
 export const ProductPrice = styled.Text`
-  font-weight: bold;
+  margin: 14px 0px;
   font-size: 20px;
+  margin-bottom: 14px;
+  font-weight: bold;
 `;
 
 export const CartButton = styled.TouchableOpacity`
-  width: 100%;
-  height: 40px;
+  background: ${colors.primary};
   flex-direction: row;
-  background-color: #6355b5;
   align-items: center;
-  padding-right: 25px;
-  justify-content: space-between;
-  border-radius: 5px;
+  border-radius: 4px;
   margin-top: auto;
 `;
 
 export const CartIcon = styled.View`
+  padding: 12px;
+  background: ${darken(0.03, colors.primary)};
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
   flex-direction: row;
-  padding: 10px 15px;
-  width: 60px;
-  height: 40px;
+  align-items: center;
 `;
 
+export const ProductAmount = styled.View``;
+
 export const CartIconCount = styled.Text`
-  margin: 0px 5px;
   color: #fff;
-  font-size: 14px;
+  margin: 0px 4px 0px 10px;
 `;
 
 export const CartText = styled.Text`
-  font-size: 14px;
-  text-transform: uppercase;
+  flex: 1;
+  text-align: center;
   font-weight: bold;
   color: #fff;
+  text-transform: uppercase;
 `;
