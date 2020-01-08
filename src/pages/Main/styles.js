@@ -7,23 +7,15 @@ export const Container = styled.View`
   min-height: 100%;
 `;
 
-export const Header = styled.View`
-  flex-direction: row;
-  margin-top: 15px;
-  padding: 15px;
-  justify-content: space-between;
-  margin-bottom: 10px;
-`;
-
-export const Card = styled.View`
+export const Product = styled.View`
   background: #fff;
   padding: 10px;
-  margin: 15px;
+  margin: 65px 15px;
   border-radius: 4px;
   width: 220px;
 `;
 
-export const Product = styled.Image`
+export const ProductImage = styled.Image`
   max-width: 200px;
   height: 200px;
 `;
