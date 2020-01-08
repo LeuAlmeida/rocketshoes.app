@@ -44,7 +44,7 @@ export const CartButton = styled.TouchableOpacity`
   flex-direction: row;
   background-color: #6355b5;
   align-items: center;
-  padding-right: 15px;
+  padding-right: 25px;
   justify-content: space-between;
   border-radius: 5px;
   margin-top: auto;
@@ -52,9 +52,15 @@ export const CartButton = styled.TouchableOpacity`
 
 export const CartIcon = styled.View`
   flex-direction: row;
-  padding: 10px 5px;
+  padding: 10px 15px;
   width: 60px;
   height: 40px;
+`;
+
+export const CartIconCount = styled.Text`
+  margin: 0px 5px;
+  color: #fff;
+  font-size: 14px;
 `;
 
 export const CartText = styled.Text`
