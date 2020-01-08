@@ -1,23 +1,91 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-// import { Container } from './styles';
+import {
+  Container,
+  Products,
+  Product,
+  ProductInfo,
+  ProductImage,
+  ProductDetails,
+  ProductTitle,
+  ProductPrice,
+  ProductDelete,
+  ProductControls,
+  ProductControlButton,
+  ProductAmount,
+  ProductSubtotal,
+  TotalContainer,
+  TotalText,
+  TotalAmount,
+  Order,
+  OrderText,
+  EmptyContainer,
+  EmptyText,
+} from './style';
 
-class Cart extends Component {
-  state = {};
+import colors from '../../styles/colors';
 
-  render() {
-    return (
-      <View style={{ height: 400, backgroundColor: 'red' }}>
+function Cart({
+  navigation,
+  products,
+  total,
+  removeFromCart,
+  updateAmountRequest,
+}) {
+  return (
+    <>
+      <Container>
+        <Products>
+          <Product>
+            <ProductInfo>
+              <ProductImage
+                source={{
+                  uri:
+                    'https://static.netshoes.com.br/produtos/tenis-vr-sneaker-meia-leve/06/E74-0492-006/E74-0492-006_detalhe2.jpg',
+                }}
+              />
+            </ProductInfo>
+            <ProductControls>
+              <ProductControlButton onPress={() => {}}>
+                <Icon
+                  name="remove-circle-outline"
+                  size={20}
+                  color={colors.primary}
+                />
+              </ProductControlButton>
+              <ProductAmount value={String(2)} />
+              <ProductControlButton onPress={() => {}}>
+                <Icon
+                  name="add-circle-outline"
+                  size={20}
+                  color={colors.primary}
+                />
+              </ProductControlButton>
+              <ProductSubtotal>R$ 200</ProductSubtotal>
+            </ProductControls>
+          </Product>
+        </Products>
+        <TotalContainer>
+          <TotalText>TOTAL</TotalText>
+          <TotalAmount>R$ 200</TotalAmount>
+          <Order>
+            <OrderText>FINALIZAR PEDIDO</OrderText>
+          </Order>
+        </TotalContainer>
+      </Container>
+
+      <View style={{ height: 50, backgroundColor: 'red' }}>
         <TouchableOpacity
-          style={{ height: 400, backgroundColor: 'red' }}
-          onPress={() => this.props.navigation.navigate('Main')}
+          style={{ height: 50, backgroundColor: 'red' }}
+          onPress={() => navigation.navigate('Main')}
         >
           <Text>Ir para a página inicial</Text>
         </TouchableOpacity>
       </View>
-    );
-  }
+    </>
+  );
 }
 
 export default Cart;
