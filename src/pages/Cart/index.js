@@ -1,5 +1,4 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {
@@ -75,15 +74,6 @@ function Cart({
           </Order>
         </TotalContainer>
       </Container>
-
-      <View style={{ height: 50, backgroundColor: 'red' }}>
-        <TouchableOpacity
-          style={{ height: 50, backgroundColor: 'red' }}
-          onPress={() => navigation.navigate('Main')}
-        >
-          <Text>Ir para a página inicial</Text>
-        </TouchableOpacity>
-      </View>
     </>
   );
 }
