@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, TouchableOpacity, ScrollView } from 'react-native';
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
   Container,
   Header,
@@ -10,6 +10,7 @@ import {
   ProductPrice,
   CartButton,
   CartIcon,
+  CartIconCount,
   CartText,
 } from './styles';
 
@@ -45,7 +46,8 @@ class Main extends Component {
             <ProductPrice>R$ 200,00</ProductPrice>
             <CartButton onPress={() => {}}>
               <CartIcon>
-                <Text>Teste</Text>
+                <Icon name="add-shopping-cart" size={20} color="#FFF" />
+                <CartIconCount>2</CartIconCount>
               </CartIcon>
 
               <CartText>Adicionar</CartText>
