@@ -7,6 +7,7 @@ export const Wrapper = styled.SafeAreaView`
   flex: 0;
   background: ${colors.dark};
   flex-direction: row;
+  min-height: 50px;
 `;
 
 export const Container = styled.View`
