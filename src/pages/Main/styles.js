@@ -51,8 +51,9 @@ export const CartButton = styled.TouchableOpacity`
 `;
 
 export const CartIcon = styled.View`
-  background-color: red;
-  width: 30px;
+  flex-direction: row;
+  padding: 10px 5px;
+  width: 60px;
   height: 40px;
 `;
 
