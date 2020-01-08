@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Text, TouchableOpacity, ScrollView } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
   Container,
   Header,
   Card,
   Product,
+  ProductImage,
   ProductTitle,
   ProductPrice,
   CartButton,
@@ -18,17 +19,10 @@ class Main extends Component {
   state = {};
 
   render() {
-    const { navigation } = this.props;
-
     return (
       <Container>
-        <Header>
-          <Text>Teste</Text>
-          <Text>Teste</Text>
-        </Header>
-
-        <Card>
-          <Product
+        <Product>
+          <ProductImage
             source={{
               uri:
                 'https://static.netshoes.com.br/produtos/tenis-vr-sneaker-meia-leve/06/E74-0492-006/E74-0492-006_detalhe2.jpg',
@@ -42,10 +36,9 @@ class Main extends Component {
               <Icon name="add-shopping-cart" size={20} color="#FFF" />
               <CartIconCount>2</CartIconCount>
             </CartIcon>
-
             <CartText>Adicionar</CartText>
           </CartButton>
-        </Card>
+        </Product>
 
         {/* <TouchableOpacity
           style={{ height: 50, backgroundColor: 'red' }}
