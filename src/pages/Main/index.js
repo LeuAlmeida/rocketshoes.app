@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
   Container,
-  Header,
-  Card,
   Product,
   ProductImage,
   ProductTitle,
@@ -39,13 +36,6 @@ class Main extends Component {
             <CartText>Adicionar</CartText>
           </CartButton>
         </Product>
-
-        {/* <TouchableOpacity
-          style={{ height: 50, backgroundColor: 'red' }}
-          onPress={() => navigation.navigate('Cart')}
-        >
-          <Text>Ir para a página de carrinho</Text>
-        </TouchableOpacity> */}
       </Container>
     );
   }
