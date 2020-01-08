@@ -10,7 +10,7 @@ export const Container = styled.View`
 export const Product = styled.View`
   background: #fff;
   padding: 10px;
-  margin: 65px 15px;
+  margin: 15px;
   border-radius: 4px;
   width: 220px;
 `;
@@ -47,8 +47,6 @@ export const CartIcon = styled.View`
   flex-direction: row;
   align-items: center;
 `;
-
-export const ProductAmount = styled.View``;
 
 export const CartIconCount = styled.Text`
   color: #fff;
