@@ -38,6 +38,15 @@ class Main extends Component {
     this.setState({ products: data });
   };
 
+  handleAddProduct = product => {
+    const { dispatch } = this.props;
+
+    dispatch({
+      type: 'ADD_TO_CART',
+      product,
+    });
+  };
+
   renderProduct = ({ item }) => {
     return (
       <Product key={item.id}>
@@ -49,7 +58,7 @@ class Main extends Component {
         />
         <ProductTitle>{item.title}</ProductTitle>
         <ProductPrice>{formatPrice(item.price)}</ProductPrice>
-        <CartButton onPress={() => {}}>
+        <CartButton onPress={() => this.handleAddProduct(item)}>
           <CartIcon>
             <Icon name="add-shopping-cart" size={20} color="#FFF" />
             <CartIconCount>2</CartIconCount>
