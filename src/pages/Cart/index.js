@@ -35,11 +35,19 @@ import colors from '../../styles/colors';
 function Cart({
   cart,
   removeFromCart,
+  updateAmount,
   navigation,
   products,
   total,
-  updateAmountRequest,
 }) {
+  function increment(product) {
+    updateAmount(product.id, product.amount + 1);
+  }
+
+  function decrement(product) {
+    updateAmount(product.id, product.amount - 1);
+  }
+
   return (
     <>
       <Container>
@@ -68,7 +76,7 @@ function Cart({
                   </ProductDelete>
                 </ProductInfo>
                 <ProductControls>
-                  <ProductControlButton onPress={() => {}}>
+                  <ProductControlButton onPress={() => decrement(item)}>
                     <Icon
                       name="remove-circle-outline"
                       size={20}
@@ -76,7 +84,7 @@ function Cart({
                     />
                   </ProductControlButton>
                   <ProductAmount value={String(item.amount)} />
-                  <ProductControlButton onPress={() => {}}>
+                  <ProductControlButton onPress={() => increment(item)}>
                     <Icon
                       name="add-circle-outline"
                       size={20}
