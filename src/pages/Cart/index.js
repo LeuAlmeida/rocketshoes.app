@@ -91,7 +91,7 @@ function Cart({
                       color={colors.primary}
                     />
                   </ProductControlButton>
-                  <ProductSubtotal>R$ 200</ProductSubtotal>
+                  <ProductSubtotal>{item.subtotal}</ProductSubtotal>
                 </ProductControls>
               </Product>
             )}
@@ -110,7 +110,10 @@ function Cart({
 }
 
 const mapStateToProps = state => ({
-  cart: state.cart,
+  cart: state.cart.map(product => ({
+    ...product,
+    subtotal: formatPrice(product.price * product.amount),
+  })),
 });
 
 const mapDispatchToProps = dispatch =>
