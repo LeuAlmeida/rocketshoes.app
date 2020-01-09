@@ -31,6 +31,7 @@ import colors from '../../styles/colors';
 
 function Cart({
   cart,
+  dispatch,
   navigation,
   products,
   total,
@@ -56,7 +57,11 @@ function Cart({
                     <ProductTitle>{item.title}</ProductTitle>
                     <ProductPrice>{formatPrice(item.price)}</ProductPrice>
                   </ProductDetails>
-                  <ProductDelete onPress={() => {}}>
+                  <ProductDelete
+                    onPress={() =>
+                      dispatch({ type: 'REMOVE_FROM_CART', id: item.id })
+                    }
+                  >
                     <Icon
                       name="delete-forever"
                       size={24}
