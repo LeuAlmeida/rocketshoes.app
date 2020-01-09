@@ -11,6 +11,7 @@ export const Product = styled.View`
   background: #fff;
   padding: 10px;
   margin: 15px;
+  max-height: 400px;
   border-radius: 4px;
   width: 220px;
 `;
