@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import { FlatList } from 'react-native';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
 import api from '../../services/api';
+import { formatPrice } from '../../util/format';
+
 import {
   Container,
   Product,
@@ -14,29 +19,59 @@ import {
 } from './styles';
 
 class Main extends Component {
-  state = {};
+  state = {
+    products: [],
+  };
+
+  componentDidMount() {
+    this.getProducts();
+  }
+
+  getProducts = async () => {
+    const response = await api.get('/products');
+
+    const data = response.data.map(product => ({
+      ...product,
+      priceFormatted: formatPrice(product.price),
+    }));
+
+    this.setState({ products: data });
+  };
+
+  renderProduct = ({ item }) => {
+    return (
+      <Product key={item.id}>
+        <ProductImage
+          source={{
+            uri: item.image,
+          }}
+          resizeMode="contain"
+        />
+        <ProductTitle>{item.title}</ProductTitle>
+        <ProductPrice>{item.price}</ProductPrice>
+        <CartButton onPress={() => {}}>
+          <CartIcon>
+            <Icon name="add-shopping-cart" size={20} color="#FFF" />
+            <CartIconCount>2</CartIconCount>
+          </CartIcon>
+          <CartText>Adicionar</CartText>
+        </CartButton>
+      </Product>
+    );
+  };
 
   render() {
+    const { products } = this.state;
+
     return (
       <Container>
-        <Product>
-          <ProductImage
-            source={{
-              uri:
-                'https://static.netshoes.com.br/produtos/tenis-vr-sneaker-meia-leve/06/E74-0492-006/E74-0492-006_detalhe2.jpg',
-            }}
-            resizeMode="contain"
-          />
-          <ProductTitle>Título do Produto</ProductTitle>
-          <ProductPrice>R$ 200,00</ProductPrice>
-          <CartButton onPress={() => {}}>
-            <CartIcon>
-              <Icon name="add-shopping-cart" size={20} color="#FFF" />
-              <CartIconCount>2</CartIconCount>
-            </CartIcon>
-            <CartText>Adicionar</CartText>
-          </CartButton>
-        </Product>
+        <FlatList
+          horizontal
+          data={products}
+          extraData={this.props}
+          keyExtractor={item => String(item.id)}
+          renderItem={this.renderProduct}
+        />
       </Container>
     );
   }
