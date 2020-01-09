@@ -72,7 +72,7 @@ function Cart({
                       color={colors.primary}
                     />
                   </ProductControlButton>
-                  <ProductAmount value={String(2)} />
+                  <ProductAmount value={String(item.amount)} />
                   <ProductControlButton onPress={() => {}}>
                     <Icon
                       name="add-circle-outline"
