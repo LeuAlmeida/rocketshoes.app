@@ -48,7 +48,7 @@ class Main extends Component {
           resizeMode="contain"
         />
         <ProductTitle>{item.title}</ProductTitle>
-        <ProductPrice>{item.price}</ProductPrice>
+        <ProductPrice>{formatPrice(item.price)}</ProductPrice>
         <CartButton onPress={() => {}}>
           <CartIcon>
             <Icon name="add-shopping-cart" size={20} color="#FFF" />
