@@ -12,7 +12,7 @@ import {
   ItemCount,
 } from './styles';
 
-function Header({ navigation, cart }) {
+function Header({ navigation, cartSize }) {
   return (
     <Wrapper>
       <Container>
@@ -21,7 +21,7 @@ function Header({ navigation, cart }) {
         </LogoContainer>
         <BasketContainer onPress={() => navigation.navigate('Cart')}>
           <Icon name="shopping-basket" color="#FFF" size={24} />
-          <ItemCount>{cart || 0}</ItemCount>
+          <ItemCount>{cartSize || 0}</ItemCount>
         </BasketContainer>
       </Container>
     </Wrapper>
@@ -30,7 +30,7 @@ function Header({ navigation, cart }) {
 
 export default connect(
   state => ({
-    cart: state.cart.length,
+    cartSize: state.cart.length,
   }),
   null
 )(Header);
