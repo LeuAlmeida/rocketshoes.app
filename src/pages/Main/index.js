@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FlatList } from 'react-native';
-
+import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import api from '../../services/api';
@@ -77,4 +77,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default connect()(Main);
