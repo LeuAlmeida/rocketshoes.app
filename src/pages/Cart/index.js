@@ -28,7 +28,7 @@ import {
   OrderText,
   EmptyContainer,
   EmptyText,
-} from './style';
+} from './styles';
 
 import { formatPrice } from '../../util/format';
 import colors from '../../styles/colors';
