@@ -47,6 +47,8 @@ class Main extends Component {
   };
 
   renderProduct = ({ item }) => {
+    const { amount } = this.props;
+
     return (
       <Product key={item.id}>
         <ProductImage
@@ -60,7 +62,7 @@ class Main extends Component {
         <CartButton onPress={() => this.handleAddProduct(item)}>
           <CartIcon>
             <Icon name="add-shopping-cart" size={20} color="#FFF" />
-            <CartIconCount>2</CartIconCount>
+            <CartIconCount>{amount[item.id] || 0}</CartIconCount>
           </CartIcon>
           <CartText>Adicionar</CartText>
         </CartButton>
@@ -85,7 +87,15 @@ class Main extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  amount: state.cart.reduce((amount, product) => {
+    amount[product.id] = product.amount;
+
+    return amount;
+  }, {}),
+});
+
 const mapDispatchToProps = dispatch =>
   bindActionCreators(CartActions, dispatch);
 
-export default connect(null, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
