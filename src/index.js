@@ -8,6 +8,8 @@ import store from './store';
 
 import Routes from './routes';
 
+// console.disableYellowBox = true;
+
 export default function App() {
   return (
     <Provider store={store}>
