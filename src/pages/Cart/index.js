@@ -27,19 +27,31 @@ import {
   Order,
   OrderText,
   EmptyContainer,
+  EmptyCart,
   EmptyText,
 } from './styles';
 
 import { formatPrice } from '../../util/format';
 import colors from '../../styles/colors';
 
-function Cart({ cart, removeFromCart, updateAmount, total }) {
+function Cart({ cart, removeFromCart, updateAmountRequest, total }) {
   function increment(product) {
-    updateAmount(product.id, product.amount + 1);
+    updateAmountRequest(product.id, product.amount + 1);
   }
 
   function decrement(product) {
-    updateAmount(product.id, product.amount - 1);
+    updateAmountRequest(product.id, product.amount - 1);
+  }
+
+  if (cart.length === 0) {
+    return (
+      <Container>
+        <EmptyContainer>
+          <EmptyCart />
+          <EmptyText>Seu carrinho está vazio.</EmptyText>
+        </EmptyContainer>
+      </Container>
+    );
   }
 
   return (
