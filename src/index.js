@@ -7,14 +7,17 @@ import './config/ReactotronConfig';
 import store from './store';
 
 import Routes from './routes';
+import NavigationService from './services/navigation';
 
-// console.disableYellowBox = true;
+console.disableYellowBox = true;
 
 export default function App() {
   return (
     <Provider store={store}>
       <StatusBar barStyle="light-content" backgroundColor="#333" />
-      <Routes />
+      <Routes
+        ref={navigatorRef => NavigationService.setNavigator(navigatorRef)}
+      />
     </Provider>
   );
 }
