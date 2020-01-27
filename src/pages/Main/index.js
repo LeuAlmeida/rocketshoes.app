@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList } from 'react-native';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import api from '../../services/api';
 import { formatPrice } from '../../util/format';
@@ -20,8 +19,17 @@ import {
   CartText,
 } from './styles';
 
-function Main({ addToCartRequest, amount }) {
+export default function Main() {
   const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+
+  const amount = useSelector(state =>
+    state.cart.reduce((sumAmount, product) => {
+      sumAmount[product.id] = product.amount;
+
+      return sumAmount;
+    }, {})
+  );
 
   useEffect(() => {
     async function getProducts() {
@@ -39,7 +47,7 @@ function Main({ addToCartRequest, amount }) {
   }, []);
 
   function handleAddProduct(id) {
-    addToCartRequest(id);
+    dispatch(CartActions.addToCartRequest(id));
   }
 
   function renderProduct({ item }) {
@@ -75,16 +83,3 @@ function Main({ addToCartRequest, amount }) {
     </Container>
   );
 }
-
-const mapStateToProps = state => ({
-  amount: state.cart.reduce((amount, product) => {
-    amount[product.id] = product.amount;
-
-    return amount;
-  }, {}),
-});
-
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(CartActions, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
