@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -20,35 +20,29 @@ import {
   CartText,
 } from './styles';
 
-class Main extends Component {
-  state = {
-    products: [],
-  };
+function Main({ addToCartRequest, amount }) {
+  const [products, setProducts] = useState([]);
 
-  componentDidMount() {
-    this.getProducts();
+  useEffect(() => {
+    async function getProducts() {
+      const response = await api.get('/products');
+
+      const data = response.data.map(product => ({
+        ...product,
+        priceFormatted: formatPrice(product.price),
+      }));
+
+      setProducts(data);
+    }
+
+    getProducts();
+  }, []);
+
+  function handleAddProduct(id) {
+    addToCartRequest(id);
   }
 
-  getProducts = async () => {
-    const response = await api.get('/products');
-
-    const data = response.data.map(product => ({
-      ...product,
-      priceFormatted: formatPrice(product.price),
-    }));
-
-    this.setState({ products: data });
-  };
-
-  handleAddProduct = id => {
-    const { addToCartRequest } = this.props;
-
-    addToCartRequest(id);
-  };
-
-  renderProduct = ({ item }) => {
-    const { amount } = this.props;
-
+  function renderProduct({ item }) {
     return (
       <Product key={item.id}>
         <ProductImage
@@ -59,7 +53,7 @@ class Main extends Component {
         />
         <ProductTitle>{item.title}</ProductTitle>
         <ProductPrice>{formatPrice(item.price)}</ProductPrice>
-        <CartButton onPress={() => this.handleAddProduct(item.id)}>
+        <CartButton onPress={() => handleAddProduct(item.id)}>
           <CartIcon>
             <Icon name="add-shopping-cart" size={20} color="#FFF" />
             <CartIconCount>{amount[item.id] || 0}</CartIconCount>
@@ -68,23 +62,18 @@ class Main extends Component {
         </CartButton>
       </Product>
     );
-  };
-
-  render() {
-    const { products } = this.state;
-
-    return (
-      <Container>
-        <FlatList
-          horizontal
-          data={products}
-          extraData={this.props}
-          keyExtractor={item => String(item.id)}
-          renderItem={this.renderProduct}
-        />
-      </Container>
-    );
   }
+
+  return (
+    <Container>
+      <FlatList
+        horizontal
+        data={products}
+        keyExtractor={item => String(item.id)}
+        renderItem={renderProduct}
+      />
+    </Container>
+  );
 }
 
 const mapStateToProps = state => ({
